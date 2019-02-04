@@ -7,6 +7,8 @@ To try it out, just
 -> rails db:create
 -> rails db:migrate
 -> rails db:seed
+-> rails server
+and give me feedbacks !
 
 Gems :
 - gem 'therubyracer'
