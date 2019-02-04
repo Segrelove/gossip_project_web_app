@@ -1,24 +1,13 @@
-# README
+# This is my first real web-application Full Stack using Rails !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Project that shows gossips, users and our team !
 
-Things you may want to cover:
+To try it out, just BUNDLE INSTALL the shit out of that repo and be my guest :)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Gems :
+- gem 'therubyracer'
+- gem 'table_print'
+- gem 'pg', '>= 0.18', '< 2.0'
+- gem 'rspec-rails', '~> 3.8'
+- gem 'factory_bot_rails'
+- gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
