@@ -2,7 +2,11 @@
 
 Simple Project that shows gossips, users and our team !
 
-To try it out, just BUNDLE INSTALL the shit out of that repo and be my guest :)
+To try it out, just 
+-> BUNDLE INSTALL
+-> rails db:create
+-> rails db:migrate
+-> rails db:seed
 
 Gems :
 - gem 'therubyracer'
