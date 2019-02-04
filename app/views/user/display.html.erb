@@ -1,0 +1,10 @@
+<div class="card text-center text-white bg-dark mb-3 mx-auto mt-5" style="width: 400px;">
+    <div class="card-header "><%= @user.full_name %></div>
+      <div class="card-body">
+    <h5 class="card-title"><%= @user.description %></h5>
+    <p><i><%= @user.age %> ans</i><br/>
+          <%= @user.email %>
+    </p>
+    <a  class="btn btn-light" <%= link_to "Retour à l'accueil", root_path %></a>
+  </div>
+</div>
