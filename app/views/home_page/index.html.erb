@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container pt-5">
   <h1>Bienvenue sur The Gossip Project !</h1>
   <p>Voici la liste de nos derniers gossips</p>
-  <div class="row">
+  <div class="row pt-4">
     <table class="table">
       <thead class="table-dark">
         <tr>
@@ -15,11 +15,11 @@
       <tbody>
         <% @gossip.each_with_index do |gossip, i| %>
           <tr>
-            <th scope="row"><%= i + 1 %></th>
+            <th scope="row"><%= gossip.id %></th>
             <td><%= @user.find(gossip.user_id).full_name %></td>
             <td><%= gossip.title %></td>
             <td><%= gossip.content %></td>
-            <td><a href="/potin/<%= i+1%>" target='_blank'>Voir</a></td>
+            <td><a href="/potin/<%= gossip.id %>" target='_blank'>Voir</a></td>
           </tr>
         <% end %>
       </tbody>
