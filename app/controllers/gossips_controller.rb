@@ -1,4 +1,31 @@
 class GossipsController < ApplicationController
+  
+  def index
+    @gossips = Gossip.all
+    @users = User.all
+  end
+
+  def show
+    @gossip = Gossip.find(params[:id])
+    @user = User.all
+    @city = City.all
+  end
+
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
+  def update
+    @gossip = Gossip.find(params[:id])
+    if @gossip.update(post_param)
+      flash[:notice] = "Ton gossip a bien été modifié !"
+      redirect_to root_path
+      return
+    else
+      render :edit
+    end
+  end
+
   def new
     @gossip = Gossip.new
   end
@@ -14,7 +41,7 @@ class GossipsController < ApplicationController
     end
   end
 
-  def show
+  def post_param
+    post_param = params.require(:gossip).permit(:title, :content)
   end
-
 end

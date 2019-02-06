@@ -1,0 +1,17 @@
+<div class="card text-center text-white bg-dark mb-3 mx-auto mt-5" style="width: 400px;">
+    <div class="card-header ">
+    <%= 
+      @user.find(@gossip.user_id).full_name 
+      %> 
+    de 
+    <%=
+      @city.find(@user.find(@gossip.user_id).city_id).name
+      %> </div>
+      <div class="card-body">
+    <h5 class="card-title"><%= @gossip.title %></h5>
+    <p><i><%= @gossip.content %></i></p>
+    <a href="/user/display/<%= @user.find(@gossip.user_id).id%>" class="btn btn-light">Voir l'auteur</a>
+  </div>
+</div>
+
+

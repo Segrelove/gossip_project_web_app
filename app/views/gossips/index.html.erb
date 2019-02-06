@@ -1,5 +1,5 @@
 <div class="container pt-5 mb-4">
-  <h1>Bienvenue sur The Gossip Project !</h1>
+  <h1>The Gossip Project</h1>
   <p>Voici la liste de nos derniers gossips</p>
   <div class="row pt-4 pb-4">
     <table class="table">
@@ -9,17 +9,19 @@
           <th scope="col">Auteur</th>
           <th scope="col">Titre</th>
           <th scope="col">Gossip</th>
-          <th scope="col">Voir le potin</th>
+          <th scope="col">Voir</th>
+          <th scope="col">Edit</th>
         </tr>
       </thead>
       <tbody>
-        <% @gossip.each_with_index do |gossip, i| %>
+        <% @gossips.each do |gossip| %>
           <tr>
             <th scope="row"><%= gossip.id %></th>
-            <td><%= @user.find(gossip.user_id).full_name %></td>
+            <td> <%= @users.find(gossip.user_id).full_name %> </td>
             <td><%= gossip.title %></td>
             <td><%= gossip.content %></td>
-            <td><a href="/potin/<%= gossip.id %>" target='_blank'>Voir</a></td>
+            <td><a href="<%= gossip_path(gossip.id)%>">Voir</a></td>
+            <td><a href="<%= edit_gossip_path(gossip.id)%>">Edit</a></td>
           </tr>
         <% end %>
       </tbody>

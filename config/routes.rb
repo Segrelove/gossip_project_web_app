@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'home_page#index'
+  root 'gossips#index'
 
   get 'user/display/:id', to: 'user#display'
-
-  get 'potin/:id', to: 'potin#content'
 
   get '/welcome/:id', to: 'welcome#first_name'
 
@@ -11,5 +9,5 @@ Rails.application.routes.draw do
   
   get '/contact', to: 'static#contact'
 
-  resources :gossips, only: [:new, :create]
+  resources :gossips
 end
