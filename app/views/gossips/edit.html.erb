@@ -5,7 +5,7 @@
 <% else %>
 <% end %>
 
-<div class="container">
+<div class="container mt-3">
   <h1 class="pt_5">Edit ce Gossip !</h1>
   <%= form_for @gossip do |f| %>
     <div class="form-group">
@@ -20,7 +20,5 @@
       <button type="submit" class="btn btn-dark text-light">Modifier le Gossip</button>
       <a href="<%= gossips_path %>" class="btn btn-default">Revenir à l'accueil</button>
     </div>
-
   <% end %>
-
 </div>
