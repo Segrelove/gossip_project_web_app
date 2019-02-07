@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #routes imbriquées
   resources :gossips do
     resources :comments
+    resources :likes
   end
 
   #routes for the session controller, for login/out purposes

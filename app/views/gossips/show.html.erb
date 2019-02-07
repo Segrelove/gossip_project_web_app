@@ -10,6 +10,10 @@
       <div class="card-body">
     <h5 class="card-title"><%= @gossip.title %></h5>
     <p><i><%= @gossip.content %></i></p>
+        <% if session[:user_id] %>
+    <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
+    <% end%>
+    <%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'like' : 'likes'%></p>
 
     <a href="/user/<%= @user.find(@gossip.user_id).id%>" class="btn btn-light"><i class="far fa-address-card"></i></a>
     <% if session[:user_id] == @gossip.user_id %>
