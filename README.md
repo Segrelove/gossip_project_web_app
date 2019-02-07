@@ -10,6 +10,9 @@ To try it out, just
 -> rails server
 and give me feedbacks !
 
+-> login and try to play with the app ! 
+-> Sorry for the layouts about the likes, it is really hardcorly disgusting... ;)
+
 Gems :
 - gem 'therubyracer'
 - gem 'table_print'
@@ -17,5 +20,4 @@ Gems :
 - gem 'rspec-rails', '~> 3.8'
 - gem 'factory_bot_rails'
 - gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-
--> https://the-superb-gossip-project.herokuapp.com/
+- gem 'bcrypt'
