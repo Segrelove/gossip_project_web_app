@@ -34,13 +34,29 @@
         <a class="nav-link"<%= link_to "Contact", contact_path %>
       </li>
     </ul>
+    <% if session[:user_id] %>
     <span class="nav-item">
-      <a class="nav-link text-light" <%= link_to "Créer un Gossip !", new_gossip_path %>
+      <a class="nav-link text-light" <%= link_to "Créer un Gossip", new_gossip_path %>
+    </span> 
+    <% end %>
+    <% if session[:user_id].nil? %>
+    <span class="nav-item">
+      <a class="nav-link text-light" <%= link_to "Sign Up", new_user_path %>
     </span>
+    <span class="nav-item">
+      <a class="nav-link text-light" <%= link_to "Log In", new_session_path %>
+    </span>
+    <% end %>
+    <% if session[:user_id] %>
+    <span class="nav-item">
+      <a class="nav-link text-light" <%= link_to "Log Out", session_path(session[:user_id]), method: :delete %>
+    </span>
+    <% end %>
+
   </div>
 </nav>
     <% flash.each do |name, msg| %>
-      <div class="alert alert-success text-center">
+      <div class="alert alert-<%= name %> text-center">
         <%= msg %>
       </div>
     <% end %>

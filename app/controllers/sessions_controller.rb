@@ -1,0 +1,30 @@
+class SessionsController < ApplicationController
+  def new 
+    @user = User.new
+  end
+  
+  def create
+    user = User.find_by(email: params[:email])
+    puts "*" * 90
+    puts user.inspect
+    puts "*" * 90
+
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to root_path
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
+    end
+  end
+
+  def destroy
+    if session.delete(:user_id)
+      flash[:primary] = "Tu as bien été deconnecté. A bientôt !"
+      redirect_to root_path
+      return
+    else
+    end
+  end
+
+end

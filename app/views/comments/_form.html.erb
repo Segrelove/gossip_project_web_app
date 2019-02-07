@@ -1,7 +1,7 @@
   <h1 class="pt_5">Commente ce Gossip !</h1>
-  <%= form_for [ @gossip, @comment ] do |f| %>
+  <%= form_for [@author, @gossip, @comment ] do |f| %>
     <div class="form-group">
-      <label>Prénom :</label>
+      <label>Auteur :</label>
         <%= f.text_field :author, class: "form-control" %>
     </div>
     <div class="form-group">

@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  
+  before_action :authenticate_user, only: [:edit, :update, :new, :create, :destroy]
   def index
     @gossips = Gossip.all
     @users = User.all
@@ -20,7 +20,7 @@ class GossipsController < ApplicationController
   def update
     @gossip = Gossip.find(params[:id])
     if @gossip.update(post_params)
-      flash[:notice] = "Ton gossip a bien été modifié !"
+      flash[:success] = "Ton gossip a bien été modifié !"
       redirect_to root_path
       return
     else
@@ -33,9 +33,9 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user_id: rand(1..10))
+    @gossip = Gossip.new(title: params[:title], content: params[:content], user_id: current_user.id)
     if @gossip.save
-      flash[:notice] = "Ton gossip a bien été créé !"
+      flash[:success] = "Ton gossip a bien été créé !"
       redirect_to root_path
       return
     else 
@@ -46,7 +46,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     if @gossip.destroy 
-      flash[:notice] = "Ton gossip a bien été supprimé."
+      flash[:primary] = "Ton gossip a bien été supprimé."
       redirect_to root_path
       return
     else
@@ -58,4 +58,12 @@ class GossipsController < ApplicationController
   def post_params
     params.require(:gossip).permit(:title, :content)
   end
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
 end

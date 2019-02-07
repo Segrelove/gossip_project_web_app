@@ -10,8 +10,10 @@
           <th scope="col">Titre</th>
           <th scope="col">Gossip</th>
           <th scope="col">Voir</th>
+          <% if session[:user_id] %>
           <th scope="col">Edit</th>
           <th scope="col">Supprimer</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -22,8 +24,10 @@
             <td><%= gossip.title %></td>
             <td><%= gossip.content %></td>
             <td><a href="<%= gossip_path(gossip.id)%>">Voir</a></td>
+            <% if session[:user_id] == gossip.user_id %>
             <td><a href="<%= edit_gossip_path(gossip.id)%>">Edit</a></td>
             <td><a href="<%= gossip_path(gossip.id)%>" data-confirm="Voulez-vous vraiment supprimer ce potin?" data-method="DELETE">Supprimer</a></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
