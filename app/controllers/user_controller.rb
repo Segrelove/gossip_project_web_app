@@ -20,7 +20,7 @@ class UserController < ApplicationController
       email: params[:email],
       password: params[:password],
       age: params[:age],
-      city_id: params[:city_id]
+      city_id: 1
       )
       if @user.save 
         flash[:success] = "Compte créé ! Un email de confirmation ne vous a jamais été envoyé"

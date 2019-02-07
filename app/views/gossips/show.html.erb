@@ -1,4 +1,4 @@
-<div class="card text-center text-white bg-dark mb-3 mx-auto mt-5" style="width: 400px;">
+<div class="card text-center text-white bg-dark mb-3 mx-auto mt-3" style="width: 400px;">
     <div class="card-header ">
     <%= 
       @user.find(@gossip.user_id).full_name 
@@ -11,10 +11,10 @@
     <h5 class="card-title"><%= @gossip.title %></h5>
     <p><i><%= @gossip.content %></i></p>
 
-    <a href="/user/<%= @user.find(@gossip.user_id).id%>" class="btn btn-light">Voir l'auteur</a>
+    <a href="/user/<%= @user.find(@gossip.user_id).id%>" class="btn btn-light"><i class="far fa-address-card"></i></a>
     <% if session[:user_id] == @gossip.user_id %>
-    <a href="<%= edit_gossip_path(@gossip.id)%>" class="btn btn-light">Edit</a>
-    <a class="btn btn-danger" data-confirm="Voulez-vous vraiment supprimer ce potin?" data-method="DELETE">Supprimer</a> 
+    <a href="<%= edit_gossip_path(@gossip.id)%>" class="btn btn-light"><i class="far fa-edit"></i></a>
+    <a class="btn btn-danger" data-confirm="Voulez-vous vraiment supprimer ce potin?" data-method="DELETE"><i class="fas fa-trash-alt"></i></a> 
     <% end %>
   </div>
 </div>

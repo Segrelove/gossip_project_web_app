@@ -5,10 +5,6 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(email: params[:email])
-    puts "*" * 90
-    puts user.inspect
-    puts "*" * 90
-
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path

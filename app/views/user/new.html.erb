@@ -26,16 +26,13 @@
     </div>
     <div class="form-group">
       <%= label_tag 'Mot de Passe' %>
-      <%= text_field_tag 'password', @user.password, class: 'form-control',  placeholder: "ex : Mich76!Gondr1928" %>
+      <%= password_field_tag 'password', @user.password, class: 'form-control',  placeholder: "ex : Mich76!Gondr1928" %>
     </div>
     <div class="form-group">
       <%= label_tag 'Decris toi !' %>
       <%= text_area_tag 'description', @user.description, class: 'form-control', placeholder: "ex : Je mange 6 fois par jour" %>
     </div>
-    <div class="form-group">
-      <%= label_tag 'Ta ville?' %>
-      <%= text_area_tag 'city_id', @user.city_id, class: 'form-control', placeholder: "ex : Bordeaux" %>
-    </div>
+
       <%= submit_tag "Créer ton compte", class: 'btn btn-default btn-dark text-light btn-submit' %>
     <% end %>
 </div>
