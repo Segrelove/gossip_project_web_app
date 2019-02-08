@@ -10,9 +10,19 @@
       <div class="card-body">
     <h5 class="card-title"><%= @gossip.title %></h5>
     <p><i><%= @gossip.content %></i></p>
-        <% if session[:user_id] %>
-    <%= button_to 'Like', gossip_likes_path(@gossip), method: :post %>
-    <% end%>
+
+    <% if session[:user_id] %>
+            <td><% pre_like = @gossip.likes.find { |like| like.user_id == current_user.id} %>
+                <% if pre_like %>
+                  <%= link_to(gossip_like_path(@gossip.id, pre_like), method: :delete) do %>
+                      <i class="fas fa-heart-broken center"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to(gossip_likes_path(@gossip.id), method: :post ) do %>
+                      <i class="fas fa-heart"></i>
+                  <% end %>
+                <% end %></td>
+            <% end %>
     <%= @gossip.likes.count %> <%= (@gossip.likes.count) == 1 ? 'like' : 'likes'%></p>
 
     <a href="/user/<%= @user.find(@gossip.user_id).id%>" class="btn btn-light"><i class="far fa-address-card"></i></a>

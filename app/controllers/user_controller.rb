@@ -24,6 +24,7 @@ class UserController < ApplicationController
       )
       if @user.save 
         flash[:success] = "Compte créé ! Un email de confirmation ne vous a jamais été envoyé"
+        session[:user_id] = @user.id
         redirect_to root_path
         return
       else 

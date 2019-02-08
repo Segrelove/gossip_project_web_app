@@ -4,20 +4,21 @@ class LikesController < ApplicationController
 
   def create
     if already_liked?
-      flash[:danger] = "Tu ne peux pas liker plus d'une fois"
+      flash.now[:danger] = "Tu ne peux pas liker plus d'une fois"
     else  
       @gossip.likes.create(user_id: current_user.id)
-      redirect_to gossip_path(@gossip)
+      flash.now[:success] = "Tu as bien liké !"
+      redirect_to request.referrer
     end
   end
 
   def destroy
     if !(already_liked?)
-      flash[:danger] = "Cannot unlike"
+      flash.now[:danger] = "Cannot unlike"
     else
       @like.destroy
     end
-    redirect_to gossip_path(@gossip)
+    redirect_to request.referrer
   end
 
   private

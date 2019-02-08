@@ -28,7 +28,8 @@ end
     description: Faker::Company.bs,
     age: rand(18..45), 
     email: Faker::Internet.email, 
-    city_id: rand(1..10))
+    city_id: rand(1..10),
+    password: "test123")
   puts "User #{u.first_name} created !"
 end
 
