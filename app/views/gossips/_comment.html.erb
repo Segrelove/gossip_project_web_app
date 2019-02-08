@@ -5,9 +5,10 @@
   <p class="card-text"><%= comment.content %></p>
   <p><i>Posted <%= distance_of_time_in_words(comment.gossip.created_at, comment.created_at) %> later</i></p>
   <% if session[:user_id] == comment.user_id %>
-  <a href="<%= edit_gossip_comment_path(@gossip.id, comment.id) %>" class="btn btn-secondary">Edit</a> 
-  <%= link_to 'Delete', [comment.gossip, comment],
-                  method: :delete, class: "btn btn-danger", data: { confirm: 'Êtes-vous sûr?' } %>
+  <%= link_to([comment.gossip, comment],
+        method: :delete, data: { confirm: 'Êtes-vous sûr?' }) do %>
+  <i class="fas fa-trash-alt"></i>
+  <% end %>
   <% end %>
   </div>
 </div>
