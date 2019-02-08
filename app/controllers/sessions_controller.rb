@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
+      flash[:success] = "Vous vous êtes identifié correctement. Bienvenue #{user.first_name} !"
       session[:user_id] = user.id
       redirect_to root_path
     else

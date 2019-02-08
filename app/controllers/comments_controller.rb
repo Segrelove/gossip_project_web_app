@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     puts "*" * 60
     @user = User.find(@comment.user_id)
     puts "*" * 60
+    @comment.author = current_user.first_name
     if @comment.save
       flash[:success] = "Ton commentaire a bien été posté !"
       redirect_to gossip_path(@comment.gossip)
